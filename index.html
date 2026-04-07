@@ -5,56 +5,84 @@
   <title>Experiment 8 - DevOps Hosting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
 
     body {
       height: 100vh;
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      color: #e6f1f5;
     }
 
     .container {
-      text-align: center;
-      backdrop-filter: blur(15px);
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 40px;
       width: 90%;
-      max-width: 600px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      animation: fadeIn 1.5s ease-in-out;
+      max-width: 700px;
+      padding: 40px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      text-align: center;
+      animation: fadeIn 1.2s ease;
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
+      font-size: 2rem;
+      margin-bottom: 8px;
+      font-weight: 600;
     }
 
     h2 {
+      font-size: 1rem;
       font-weight: 300;
-      margin-bottom: 20px;
-      color: #e0e0e0;
+      color: #a8c3cc;
+      margin-bottom: 25px;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 50px;
-      background: rgba(255,255,255,0.2);
-      margin-bottom: 20px;
-      font-size: 0.9rem;
+    .pipeline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 30px 0;
+    }
+
+    .node {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .node:hover {
+      transform: scale(1.1);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #7fd8ff, transparent);
+      animation: flow 2s infinite linear;
+    }
+
+    @keyframes flow {
+      from { background-position: 0; }
+      to { background-position: 200px; }
     }
 
     .steps {
@@ -63,72 +91,76 @@
     }
 
     .step {
-      background: rgba(255,255,255,0.15);
-      padding: 12px;
-      margin: 8px 0;
-      border-radius: 10px;
-      transition: transform 0.2s;
-    }
-
-    .step:hover {
-      transform: scale(1.03);
+      padding: 10px;
+      margin: 6px 0;
+      border-left: 2px solid #7fd8ff;
+      background: rgba(255,255,255,0.04);
+      border-radius: 6px;
     }
 
     button {
       margin-top: 25px;
-      padding: 12px 25px;
+      padding: 10px 22px;
+      border-radius: 25px;
       border: none;
-      border-radius: 30px;
-      background: white;
-      color: #764ba2;
-      font-weight: bold;
+      background: #7fd8ff;
+      color: #0f2027;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: 0.3s;
+      font-weight: 500;
     }
 
     button:hover {
-      background: #f1f1f1;
+      background: #a6e6ff;
       transform: scale(1.05);
     }
 
     .footer {
       margin-top: 20px;
       font-size: 0.8rem;
-      color: #ddd;
+      color: #9bbac4;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
   </style>
 </head>
 
 <body>
 
 <div class="container">
-  <h1>🚀 Experiment 8</h1>
+  <h1>Pranat's Experiment 8</h1>
   <h2>DevOps: Hosting a Web Application</h2>
 
-  <div class="badge">Successfully Deployed 🌐</div>
-
-  <div class="steps">
-    <div class="step">✅ Created HTML Web Application</div>
-    <div class="step">✅ Initialized Git Repository</div>
-    <div class="step">✅ Pushed Code to GitHub</div>
-    <div class="step">✅ Deployed using Hosting Service</div>
-    <div class="step">✅ Verified Live Application</div>
+  <!-- Pipeline Graphic -->
+  <div class="pipeline">
+    <div class="node">Code</div>
+    <div class="line"></div>
+    <div class="node">Build</div>
+    <div class="line"></div>
+    <div class="node">Deploy</div>
+    <div class="line"></div>
+    <div class="node">Live</div>
   </div>
 
-  <button onclick="showMessage()">Click Me 🎉</button>
+  <!-- Steps -->
+  <div class="steps">
+    <div class="step">Created and structured the web application</div>
+    <div class="step">Version control initialized and code pushed</div>
+    <div class="step">Build and deployment configured</div>
+    <div class="step">Application hosted and verified</div>
+  </div>
 
-  <div class="footer">Hosted using DevOps Practices 💡</div>
+  <button onclick="showMessage()">Check Status</button>
+
+  <div class="footer">Deployed using DevOps workflow</div>
 </div>
 
 <script>
   function showMessage() {
-    alert("🎉 Your DevOps Hosting is Successful!");
+    alert("Application successfully deployed and running.");
   }
 </script>
 
